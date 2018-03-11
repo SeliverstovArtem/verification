@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div(class="container")
+    div(class="span10 offset1")
+      div(class="row")
+        h1= title
+        form(method="post",action="/addthing1")
+          div(class="form-group")
+            label(class="control-label cpl-sm-2") Название :
+            input(class="form-control", type="text", placeholder="Название", name="name")
+          div(class="form-group")
+            label(class="control-label cpl-sm-2") Описание :
+            input(class="form-control", type="text", placeholder="Описание", name="price")
+          div(class="form-group")
+            input(type="submit", class="btn btn-success" value="Добавить")
+          div(class="form-group")
+            a(href="/thinglist")!= "Вернуться к списку вещей"

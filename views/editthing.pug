@@ -1,0 +1,19 @@
+extends layout
+block content
+  div(class="container")
+    div(class="span10 offset1")
+      div(class="row")
+        h1=title
+        form(method="post",action="/thing/:id/edit")
+          div(class="form-group")
+            input(name="_id", type="hidden", value=thing._id)
+          div(class="form-group")
+            label(class="control-label cpl-sm-2") Название :
+            input(class="form-control", type="text", name="name", value = [name])
+          div(class="form-group")
+            label(class="control-label cpl-sm-2") Описание :
+            input(class="form-control", type="text", name="price", value = thing.price)
+          div(class="form-group")
+            input(type="submit", class="btn btn-success" value="OK")
+          div(class="form-group")
+            a(href="/home")!= "Вернуться к списку вещей"

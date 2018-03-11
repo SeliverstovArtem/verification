@@ -1,0 +1,50 @@
+//- doctype html
+//- html(lang="ru")
+//- head
+//-   meta(charset="UTF-8")
+//-   meta(name="viewport", content="width=device-width, initial-scale=1.0")
+//-   meta(http-equiv="X-UA-Compatible", content="ie=edge")
+//-   title!= title
+//- body
+//-   h1!= message
+
+extends layout
+
+block content
+
+  div(class="container")
+    div(class="row")
+      h1=title
+    div(class="row")
+      // USER LIST
+
+      table(class="table table-striped table-bordered")
+        thead
+          h2 Список объектов
+            #thingList
+            table(class="table table-striped table-bordered")
+              thead
+                th Название
+                th Описание
+              tbody
+              -var a=thinglist
+              for item in thinglist
+                tr
+                  td=item.name
+                  td=item.price
+                
+
+
+        // ADD USER
+        h3 Добавить объект
+        #addThing
+        form(method="post",action="/addthing1")
+          div(class="form-group")
+            label(class="control-label cpl-sm-2") Название :
+            input(class="form-control", type="text", placeholder="Название", name="name")
+          div(class="form-group")
+            label(class="control-label cpl-sm-2") Описание :
+            input(class="form-control", type="text", placeholder="Описание", name="price")
+          div(class="form-group")
+            input(type="submit", class="btn btn-success" value="Добавить")
+          div(class="form-group")
